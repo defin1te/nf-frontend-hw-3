@@ -1,33 +1,38 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f7f7f7;
+  margin: 0;
+  padding: 0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.posts-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.post-item {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-item h2 {
+  margin-top: 0;
+}
+
+.post-item p {
+  margin-bottom: 10px;
+}
+
+.post-item a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.post-item a:hover {
+  text-decoration: underline;
 }
