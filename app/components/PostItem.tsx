@@ -1,8 +1,13 @@
 'use client';
 
 import Link from 'next/link';
+import { Post } from '../types'; 
 
-const PostItem = ({ post }) => {
+interface PostItemProps {
+  post: Post; 
+}
+
+const PostItem: React.FC<PostItemProps> = ({ post }) => {
   return (
     <div className="post-item border-b border-gray-200 pb-4 mb-4">
       <h2 className="text-2xl font-bold">{post.title}</h2>

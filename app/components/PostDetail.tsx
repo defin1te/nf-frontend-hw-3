@@ -1,23 +1,23 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'next/navigation';  // Use useParams to get the route parameters
+import { useParams } from 'next/navigation';  
 import { fetchPostById } from '../api';
-import { Post } from '../types'; // Import the Post type
+import { Post } from '../types'; 
 
 const PostDetail = () => {
   const params = useParams();
-  const id = params.id; // Get the id from the params
+  const id = params.id; 
 
-  const [post, setPost] = useState<Post | null>(null); // Use the Post type for the state
+  const [post, setPost] = useState<Post | null>(null); 
 
   useEffect(() => {
-    console.log('ID:', id); // Debugging log
+    console.log('ID:', id); 
     if (id) {
       const getPost = async () => {
         try {
           const postData = await fetchPostById(Number(id));
-          console.log('Post Data:', postData); // Debugging log
+          console.log('Post Data:', postData); 
           setPost(postData);
         } catch (error) {
           console.error('Error fetching post:', error);

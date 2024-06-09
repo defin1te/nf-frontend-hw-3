@@ -3,11 +3,12 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { Post } from '../types'; 
 
 const PostDetail = () => {
   const router = useRouter();
   const { id } = router.query;
-  const [post, setPost] = useState(null);
+  const [post, setPost] = useState<Post | null>(null);
 
   useEffect(() => {
     if (id) {

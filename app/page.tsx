@@ -3,9 +3,10 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import PostItem from './components/PostItem';
+import { Post } from './types';
 
 const Home = () => {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
     const fetchPosts = async () => {
