@@ -1,22 +1,22 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';  
 import { fetchPostById } from '../api';
 
 const PostDetail = () => {
-  const router = useRouter();
-  const { id } = router.query || {};
+  const params = useParams();
+  const id = params.id; 
 
   const [post, setPost] = useState(null);
 
   useEffect(() => {
-    console.log('ID:', id); // Debugging log
+    console.log('ID:', id); 
     if (id) {
       const getPost = async () => {
         try {
           const postData = await fetchPostById(Number(id));
-          console.log('Post Data:', postData); // Debugging log
+          console.log('Post Data:', postData); 
           setPost(postData);
         } catch (error) {
           console.error('Error fetching post:', error);
@@ -33,7 +33,7 @@ const PostDetail = () => {
     <div className="post-detail p-4">
       <h1 className="text-4xl font-bold mb-4">{post.title}</h1>
       <p className="text-lg text-gray-700">{post.body}</p>
-      <button onClick={() => router.back()} className="text-blue-500 hover:underline mt-4">Go back</button>
+      <button onClick={() => window.history.back()} className="text-blue-500 hover:underline mt-4">Go back</button>
     </div>
   );
 };
